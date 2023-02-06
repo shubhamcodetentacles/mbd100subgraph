@@ -1,0 +1,48 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: mbd100
+    network: bsc
+    source:
+      address: "0x86d1b6ed26F56E1E1103abA3Fe26f0323Ab24c09"
+      abi: mbd100
+      startBlock: 8140073
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - regLevelEvent
+        - reentryLevelEvent
+        - buyLevelEvent
+        - getMoneyForLevelEvent
+        - paidForLevelEv
+        - binaryData
+        - Jackpot
+        - netProfit
+        - jackpotfundEntry
+      abis:
+        - name: mbd100
+          file: ./abis/mbd100.json
+      eventHandlers:
+        - event: regLevelEvent(indexed address,uint256,uint256,indexed address,uint256)
+          handler: handleregLevelEvent
+        - event: reentryLevelEvent(indexed address,uint256,uint256,uint256)
+          handler: handlereentryLevelEvent
+        - event: buyLevelEvent(indexed address,uint256,uint256,uint256)
+          handler: handlebuyLevelEvent
+        - event: getMoneyForLevelEvent(indexed address,indexed address,uint256,uint256,uint256,uint256)
+          handler: handlegetMoneyForLevelEvent
+        - event: paidForLevelEv(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handlepaidForLevelEv
+        - event: binaryData(indexed address,uint256,uint256,uint256,address)
+          handler: handlebinaryData
+        - event: Jackpot(indexed address,uint256)
+          handler: handleJackpot
+        - event: netProfit(uint256,address)
+          handler: handlenetProfit
+        - event: jackpotfundEntry(address,uint256)
+          handler: handlejackpotfundEntry
+      file: ./src/mbd-100.ts

@@ -1,0 +1,97 @@
+type regLevelEvent @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _userId: BigInt! # uint256
+  _referralID: BigInt! # uint256
+  _referrer: Bytes! # address
+  _time: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type reentryLevelEvent @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _userId: BigInt! # uint256
+  _referralID: BigInt! # uint256
+  _time: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type buyLevelEvent @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _level: BigInt! # uint256
+  _time: BigInt! # uint256
+  _amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type getMoneyForLevelEvent @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _referral: Bytes! # address
+  matrixLevel: BigInt! # uint256
+  _level: BigInt! # uint256
+  _time: BigInt! # uint256
+  _amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type paidForLevelEv @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _referral: Bytes! # address
+  _level: BigInt! # uint256
+  _amount: BigInt! # uint256
+  _time: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type binaryData @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _userId: BigInt! # uint256
+  _referralID: BigInt! # uint256
+  _level: BigInt! # uint256
+  referralAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Jackpot @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  time: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type netProfit @entity(immutable: true) {
+  id: Bytes!
+  _amount: BigInt! # uint256
+  _user: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type jackpotfundEntry @entity(immutable: true) {
+  id: Bytes!
+  _user: Bytes! # address
+  _amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
